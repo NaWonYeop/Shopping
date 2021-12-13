@@ -1,6 +1,6 @@
 package com.shopping.vo;
 
-public class repleVO
+public class RepleVO
 {
 	private String location;
 	private String boardNum;

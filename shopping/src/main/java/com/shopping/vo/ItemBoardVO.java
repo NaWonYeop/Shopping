@@ -1,6 +1,6 @@
 package com.shopping.vo;
 
-public class itemBoardVO
+public class ItemBoardVO
 {
 	private int boardId;
 	private String boardName;
