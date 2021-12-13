@@ -5,8 +5,27 @@ import java.sql.SQLException;
 import com.shopping.vo.MemberVO;
 
 public class MemberDAO extends DAO {
+	
+	// id중복체크
+	public String getId(String id) {
+		String userId = "";
+		String sql = "select * from shop_member where id = " + id;
+		try {
+			conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				userId = rs.getString("id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return userId;
+	}
+	
 	// 수정
-	public void updateMember(MemberVO vo) {
+	public MemberVO updateMember(MemberVO vo) {
 		String sql = "update shop_member set passwd = ?, name = ? where id = ?";
 		try {
 			conn.prepareStatement(sql);
@@ -21,6 +40,7 @@ public class MemberDAO extends DAO {
 		} finally {
 			disconnect();
 		}
+		return vo;
 	}
 	
 	
