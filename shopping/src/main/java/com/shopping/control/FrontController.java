@@ -35,7 +35,7 @@ public class FrontController extends HttpServlet
 		String context=req.getContextPath();//p20211209/*.do
 		int toPos=url.indexOf(".do");
 		String path=url.substring(context.length(),toPos+3);
-		System.out.println(path);
+
 		
 		Controller subCont=list.get(path);
 		subCont.excute(req, res);
