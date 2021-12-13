@@ -2,49 +2,51 @@ package com.shopping.vo;
 
 public class ItemBoardVO
 {
-	private int boardId;
-	private String boardName;
-	private String boardInfo;
-	private String userId;
-	private String userName;
-	public int getBoardId()
+	private int itemId;
+	private String itemName;
+	private String itemInfo;
+	private int itemVal;
+	private String itemImg;
+	public int getItemId()
 	{
-		return boardId;
+		return itemId;
 	}
-	public void setBoardId(int boardId)
+	public void setItemId(int itemId)
 	{
-		this.boardId = boardId;
+		this.itemId = itemId;
 	}
-	public String getBoardName()
+	public String getItemName()
 	{
-		return boardName;
+		return itemName;
 	}
-	public void setBoardName(String boardName)
+	public void setItemName(String itemName)
 	{
-		this.boardName = boardName;
+		this.itemName = itemName;
 	}
-	public String getBoardInfo()
+	public String getItemInfo()
 	{
-		return boardInfo;
+		return itemInfo;
 	}
-	public void setBoardInfo(String boardInfo)
+	public void setItemInfo(String itemInfo)
 	{
-		this.boardInfo = boardInfo;
+		this.itemInfo = itemInfo;
 	}
-	public String getUserId()
+	public int getItemVal()
 	{
-		return userId;
+		return itemVal;
 	}
-	public void setUserId(String userId)
+	public void setItemVal(int itemVal)
 	{
-		this.userId = userId;
+		this.itemVal = itemVal;
 	}
-	public String getUserName()
+	public String getItemImg()
 	{
-		return userName;
+		return itemImg;
 	}
-	public void setUserName(String userName)
+	public void setItemImg(String itemImg)
 	{
-		this.userName = userName;
+		this.itemImg = itemImg;
 	}
+	
+	
 }
