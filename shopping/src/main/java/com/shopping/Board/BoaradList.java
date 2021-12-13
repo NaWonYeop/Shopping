@@ -1,4 +1,4 @@
-package com.shopping.itemBoard;
+package com.shopping.Board;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shopping.control.Controller;
-import com.shopping.vo.ItemBoardVO;
+import com.shopping.vo.BoardVO;
 
 
-public class ItemBoaradList implements Controller
+public class BoaradList implements Controller
 {
 
 	
@@ -19,8 +19,8 @@ public class ItemBoaradList implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		ItemBoardService service=new ItemBoardService();
-		List<ItemBoardVO> list=service.searchAll();
+		BoardService service=new BoardService();
+		List<BoardVO> list=service.searchAll();
 				
 		
 	}
