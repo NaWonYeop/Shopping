@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.shopping.control.Controller;
 import com.shopping.vo.MemberVO;
 
-public class JoinController implements Controller {
+public class UpdateController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -19,11 +19,11 @@ public class JoinController implements Controller {
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
-		vo.setPasswd(passwd);
 		vo.setName(name);
+		vo.setPasswd(passwd);
 		
 		MemberService service = new MemberService();
-		service.insertMember(vo);
+		service.updateMember(vo);
 		
 		req.getRequestDispatcher("login.jsp").forward(req, res);
 	}

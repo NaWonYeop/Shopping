@@ -6,6 +6,8 @@ public class RepleVO
 	private String boardNum;
 	private String userId;
 	private String repleInfo;
+	
+	
 	public String getLocation()
 	{
 		return location;

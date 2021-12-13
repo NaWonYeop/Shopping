@@ -9,23 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.shopping.control.Controller;
 import com.shopping.vo.MemberVO;
 
-public class JoinController implements Controller {
+public class GetIdController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String id = req.getParameter("id");
-		String passwd = req.getParameter("passwd");
-		String name = req.getParameter("name");
-		
-		MemberVO vo = new MemberVO();
-		vo.setId(id);
-		vo.setPasswd(passwd);
-		vo.setName(name);
 		
 		MemberService service = new MemberService();
-		service.insertMember(vo);
+		String getId = service.getId(id);
+		req.setAttribute("id", getId);
 		
-		req.getRequestDispatcher("login.jsp").forward(req, res);
+		req.getRequestDispatcher("/join.jsp").forward(req, res);
 	}
 
 }

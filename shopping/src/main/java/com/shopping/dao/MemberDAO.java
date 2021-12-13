@@ -26,7 +26,10 @@ public class MemberDAO extends DAO {
 	
 	// 수정
 	public MemberVO updateMember(MemberVO vo) {
-		String sql = "update shop_member set passwd = ?, name = ? where id = ?";
+		String sql = "update shop_member set"
+				+ "passwd = NVL(?, passwd),"
+				+ "name = NVL(?, name)"
+				+ "where id = ?";
 		try {
 			conn.prepareStatement(sql);
 			psmt.setString(1, vo.getPasswd());
