@@ -1,4 +1,4 @@
-package com.shopping.Board;
+package com.shopping.control;
 
 import java.io.IOException;
 
@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.shopping.control.Controller;
+import com.shopping.Board.BoardService;
 import com.shopping.vo.BoardVO;
 
-public class InsertBoard implements Controller
+public class B_InsertController implements Controller
 {
 
 	@Override

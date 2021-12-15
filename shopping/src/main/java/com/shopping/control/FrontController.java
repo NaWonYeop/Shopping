@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.ItemBoard.InsertItemController;
-import com.shopping.ItemBoard.ItemListController;
 
 public class FrontController extends HttpServlet {
 
@@ -19,10 +17,21 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		System.out.println("controller init ");
 		list = new HashMap<String, Controller>();
-
+		//자유게시판
+		list.put("/insertBoard.do", new B_InsertController());// 등록후 boardlist.do
+		list.put("/BoardList.do", new B_ListController());// ->boardlist.jsp
+		list.put("/updateBoard.do", new B_UpdateController());// ->업데이트후 boardlist.do
+		list.put("/deleteBoard.do", new B_DeleteController());// ->딜리트후 boardlist.do
+		list.put("/viewBoard.do", new B_BoardController());// ->board.jsp
+		
 		// 상품페이지
-		list.put("/insertItem.do", new InsertItemController());// 등록후 itemlist.jsp
-		list.put("/ItemList.do", new ItemListController());
+		list.put("/insertItem.do", new I_InsertController());// 등록후 itemlist.do
+		list.put("/ItemList.do", new I_ListController());// ->itemlist.jsp
+		list.put("/updateItem.do", new I_UpdateController());// ->업데이트후 itemlist.do
+		list.put("/deleteItem.do", new I_DeleteController());// ->딜리트후 itemlist.do
+		list.put("/viewItem.do", new I_ItemController());// ->item.jsp
+		
+		
 		// 회원
 		list.put("/joinMember.do", new U_ioinController()); // ->login.jsp
 		list.put("/deleteMember.do", new U_deleteController()); // ->index.jsp

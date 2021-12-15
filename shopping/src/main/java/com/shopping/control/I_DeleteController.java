@@ -1,29 +1,28 @@
-package com.shopping.ItemBoard;
+package com.shopping.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.control.Controller;
-import com.shopping.vo.ItemBoardVO;
+import com.shopping.ItemBoard.ItemBoardService;
 
-public class ItemListController implements Controller
+public class I_DeleteController implements Controller
 {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		int id=Integer.parseInt(req.getParameter("iId"));
+		
 		ItemBoardService service=new ItemBoardService();
-		List<ItemBoardVO> list=service.searchAll();
+		service.delete(id);
 		
-		req.setAttribute("itemList", list);
+		//아이템 리스트 이동
+		req.getRequestDispatcher("ItemList.do").forward(req, res);
 		
-		//아이템리스트화면
-		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
 	}
 
 }

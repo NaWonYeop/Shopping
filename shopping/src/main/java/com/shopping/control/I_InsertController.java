@@ -1,20 +1,17 @@
-package com.shopping.ItemBoard;
+package com.shopping.control;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.shopping.Board.BoardService;
-import com.shopping.control.Controller;
-import com.shopping.vo.BoardVO;
+import com.shopping.ItemBoard.ItemBoardService;
 import com.shopping.vo.ItemBoardVO;
 
-public class InsertItemController implements Controller
+public class I_InsertController implements Controller
 {
 
 	@Override

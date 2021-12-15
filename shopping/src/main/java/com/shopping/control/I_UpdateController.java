@@ -1,18 +1,15 @@
-package com.shopping.ItemBoard;
+package com.shopping.control;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.shopping.Board.BoardService;
-import com.shopping.control.Controller;
-import com.shopping.vo.BoardVO;
+import com.shopping.ItemBoard.ItemBoardService;
 import com.shopping.vo.ItemBoardVO;
 
-public class UpdateItem implements Controller
+public class I_UpdateController implements Controller
 {
 
 	@Override
@@ -32,7 +29,7 @@ public class UpdateItem implements Controller
 		service.update(vo);
 		
 		//아이템 리스트 이동
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("ItemList.do").forward(req, res);
 	}
 
 }

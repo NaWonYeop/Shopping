@@ -11,7 +11,7 @@ public class DAO
 {
 	private String jdbc_driver = "oracle.jdbc.driver.OracleDriver";
 
-	private String jdbc_url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+	private String jdbc_url = "jdbc:oracle:thin:@192.168.0.27:1521:xe";
 
 	private String connectId = "hr";
 
