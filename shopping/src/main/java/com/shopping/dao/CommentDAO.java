@@ -75,14 +75,13 @@ public class CommentDAO extends DAO {
 	// 댓글 입력
 	public void insertComment(CommentVO vo) {
 		String sql = "insert into shop_comment(comment_id, comment_content, board_id, user_id)"
-				+ "values (?, ?, ?, ?)";
+				+ "values (shop_comment_seq.nextval, ?, ?, ?)";
 		connect();
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getcId());
-			psmt.setString(2, vo.getContent());
-			psmt.setInt(3, vo.getbId());
-			psmt.setString(4, vo.getuId());
+			psmt.setString(1, vo.getContent());
+			psmt.setInt(2, vo.getbId());
+			psmt.setString(3, vo.getuId());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력");
 		} catch (SQLException e) {

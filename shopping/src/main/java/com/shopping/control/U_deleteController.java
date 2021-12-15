@@ -17,7 +17,7 @@ public class U_deleteController implements Controller {
 		MemberService service = new MemberService();
 		service.deleteMember(id);
 		
-		req.getRequestDispatcher("index.jsp").forward(req, res);
+		res.sendRedirect("index.jsp");
 	}
 	
 }
