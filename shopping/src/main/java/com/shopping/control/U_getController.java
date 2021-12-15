@@ -1,4 +1,4 @@
-package com.shopping.member;
+package com.shopping.control;
 
 import java.io.IOException;
 
@@ -6,10 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.control.Controller;
-import com.shopping.vo.MemberVO;
+import com.shopping.member.MemberService;
 
-public class GetIdController implements Controller {
+public class U_getController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

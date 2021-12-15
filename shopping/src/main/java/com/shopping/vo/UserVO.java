@@ -1,6 +1,6 @@
 package com.shopping.vo;
 
-public class MemberVO {
+public class UserVO {
 	private String id;
 	private String passwd;
 	private String name;

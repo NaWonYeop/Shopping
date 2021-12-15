@@ -8,11 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.member.DeleteController;
-import com.shopping.member.GetIdController;
-import com.shopping.member.JoinController;
-import com.shopping.member.UpdateController;
-
 public class FrontController extends HttpServlet
 {
 	
@@ -28,13 +23,16 @@ public class FrontController extends HttpServlet
 		
 		
 		// 회원
-		list.put("/joinMember.do", new JoinController()); // ->login.jsp
-		list.put("/deleteMember.do", new DeleteController()); // ->index.jsp
-		list.put("/updateMember.do", new UpdateController()); // ->login.jsp
-		list.put("/getId.do", new GetIdController()); // ->join.jsp
+		list.put("/joinMember.do", new U_ioinController()); // ->login.jsp
+		list.put("/deleteMember.do", new U_deleteController()); // ->index.jsp
+		list.put("/updateMember.do", new U_updateController()); // ->login.jsp
+		list.put("/getId.do", new U_getController()); // ->join.jsp
 		
 		// 댓글
-		
+		list.put("/insertComment.do", new C_inserController());
+		list.put("/deleteComment.do", new C_deleteController());
+		list.put("/updateComment.do", new C_updateController());
+		list.put("/getComment.do", new C_getController());
 	}
 	
 	@Override

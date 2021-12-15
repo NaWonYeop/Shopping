@@ -1,4 +1,4 @@
-package com.shopping.member;
+package com.shopping.control;
 
 import java.io.IOException;
 
@@ -6,10 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.control.Controller;
-import com.shopping.vo.MemberVO;
+import com.shopping.member.MemberService;
+import com.shopping.vo.UserVO;
 
-public class UpdateController implements Controller {
+public class U_ioinController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -17,13 +17,13 @@ public class UpdateController implements Controller {
 		String passwd = req.getParameter("passwd");
 		String name = req.getParameter("name");
 		
-		MemberVO vo = new MemberVO();
+		UserVO vo = new UserVO();
 		vo.setId(id);
-		vo.setName(name);
 		vo.setPasswd(passwd);
+		vo.setName(name);
 		
 		MemberService service = new MemberService();
-		service.updateMember(vo);
+		service.insertMember(vo);
 		
 		req.getRequestDispatcher("login.jsp").forward(req, res);
 	}

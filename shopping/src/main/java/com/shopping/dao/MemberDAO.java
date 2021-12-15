@@ -2,7 +2,7 @@ package com.shopping.dao;
 
 import java.sql.SQLException;
 
-import com.shopping.vo.MemberVO;
+import com.shopping.vo.UserVO;
 
 public class MemberDAO extends DAO {
 	
@@ -10,6 +10,7 @@ public class MemberDAO extends DAO {
 	public String getId(String id) {
 		String userId = "";
 		String sql = "select * from shop_member where id = " + id;
+		connect();
 		try {
 			conn.createStatement();
 			rs = stmt.executeQuery(sql);
@@ -25,11 +26,12 @@ public class MemberDAO extends DAO {
 	}
 	
 	// 수정
-	public MemberVO updateMember(MemberVO vo) {
+	public UserVO updateMember(UserVO vo) {
 		String sql = "update shop_member set"
 				+ "passwd = NVL(?, passwd),"
 				+ "name = NVL(?, name)"
 				+ "where id = ?";
+		connect();
 		try {
 			conn.prepareStatement(sql);
 			psmt.setString(1, vo.getPasswd());
@@ -65,7 +67,7 @@ public class MemberDAO extends DAO {
 	}
 	
 	// 가입
-	public void insertMember(MemberVO vo) {
+	public void insertMember(UserVO vo) {
 		String sql = "insert into shop_member values(?, ?, ?)";
 		connect();
 		

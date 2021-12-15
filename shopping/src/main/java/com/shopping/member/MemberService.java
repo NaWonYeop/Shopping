@@ -1,12 +1,12 @@
 package com.shopping.member;
 
 import com.shopping.dao.MemberDAO;
-import com.shopping.vo.MemberVO;
+import com.shopping.vo.UserVO;
 
 public class MemberService {
 	MemberDAO dao = new MemberDAO();
 	
-	public void insertMember(MemberVO vo) {
+	public void insertMember(UserVO vo) {
 		dao.insertMember(vo);
 	}
 	
@@ -14,7 +14,7 @@ public class MemberService {
 		dao.deleteMemver(id);
 	}
 	
-	public MemberVO updateMember(MemberVO vo) {
+	public UserVO updateMember(UserVO vo) {
 		return dao.updateMember(vo);
 	}
 	
