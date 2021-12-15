@@ -1,27 +1,34 @@
-package com.shopping.ItemBoard;
+package com.shopping.Board;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shopping.control.Controller;
-import com.shopping.vo.ItemBoardVO;
+import com.shopping.vo.BoardVO;
 
-public class ItemList implements Controller
+public class ViewSingleBoard implements Controller
 {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		ItemBoardService service=new ItemBoardService();
-		List<ItemBoardVO> list=service.searchAll();
+		int bId=Integer.parseInt(req.getParameter("bId")) ;
 		
-		req.setAttribute("itemList", list);
+		BoardService service=new BoardService();
+		BoardVO vo= service.searchOne(bId);
+		
+		req.setAttribute("Singleboard", vo);
+		
+		//댓글추가
+	
+		
+		//싱글보드 이동
 		req.getRequestDispatcher(null).forward(req, res);
+		
 	}
 
 }

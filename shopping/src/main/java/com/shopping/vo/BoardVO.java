@@ -3,10 +3,9 @@ package com.shopping.vo;
 public class BoardVO
 {
 	private int boardId;
-	private String boardName;
-	private String boardInfo;
+	private String boardTitle;
+	private String boardContent;
 	private String userId;
-	private String userName;
 	public int getBoardId()
 	{
 		return boardId;
@@ -15,21 +14,21 @@ public class BoardVO
 	{
 		this.boardId = boardId;
 	}
-	public String getBoardName()
+	public String getBoardTitle()
 	{
-		return boardName;
+		return boardTitle;
 	}
-	public void setBoardName(String boardName)
+	public void setBoardTitle(String boardTitle)
 	{
-		this.boardName = boardName;
+		this.boardTitle = boardTitle;
 	}
-	public String getBoardInfo()
+	public String getBoardContent()
 	{
-		return boardInfo;
+		return boardContent;
 	}
-	public void setBoardInfo(String boardInfo)
+	public void setBoardContent(String boardContent)
 	{
-		this.boardInfo = boardInfo;
+		this.boardContent = boardContent;
 	}
 	public String getUserId()
 	{
@@ -39,12 +38,6 @@ public class BoardVO
 	{
 		this.userId = userId;
 	}
-	public String getUserName()
-	{
-		return userName;
-	}
-	public void setUserName(String userName)
-	{
-		this.userName = userName;
-	}
+	
+	
 }

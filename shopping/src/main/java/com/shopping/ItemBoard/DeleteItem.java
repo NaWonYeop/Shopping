@@ -1,29 +1,26 @@
-package com.shopping.Board;
+package com.shopping.ItemBoard;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shopping.control.Controller;
-import com.shopping.vo.BoardVO;
 
-
-public class BoaradList implements Controller
+public class DeleteItem implements Controller
 {
 
-	
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		BoardService service=new BoardService();
-		List<BoardVO> list=service.searchAll();
-			
+		int id=Integer.parseInt(req.getParameter("iId"));
 		
-		req.setAttribute("BoardList", list);
+		ItemBoardService service=new ItemBoardService();
+		service.delete(id);
+		
+		//아이템 리스트 이동
 		req.getRequestDispatcher(null).forward(req, res);
 		
 	}
