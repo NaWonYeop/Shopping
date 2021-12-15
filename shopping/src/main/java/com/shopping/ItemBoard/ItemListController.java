@@ -1,4 +1,4 @@
-package com.shopping.Board;
+package com.shopping.ItemBoard;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,24 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.shopping.control.Controller;
-import com.shopping.vo.BoardVO;
+import com.shopping.vo.ItemBoardVO;
 
-
-public class BoaradList implements Controller
+public class ItemListController implements Controller
 {
 
-	
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		BoardService service=new BoardService();
-		List<BoardVO> list=service.searchAll();
-			
+		ItemBoardService service=new ItemBoardService();
+		List<ItemBoardVO> list=service.searchAll();
 		
-		req.setAttribute("BoardList", list);
-		req.getRequestDispatcher(null).forward(req, res);
+		req.setAttribute("itemList", list);
 		
+		//아이템리스트화면
+		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
 	}
 
 }

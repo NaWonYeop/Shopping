@@ -3,9 +3,9 @@ package com.shopping.vo;
 public class ItemBoardVO
 {
 	private int itemId;
-	private String itemName;
-	private String itemInfo;
-	private int itemVal;
+	private String itemTitle;
+	private String itemContent;
+	private int itemPrice;
 	private String itemImg;
 	public int getItemId()
 	{
@@ -15,29 +15,29 @@ public class ItemBoardVO
 	{
 		this.itemId = itemId;
 	}
-	public String getItemName()
+	public String getItemTitle()
 	{
-		return itemName;
+		return itemTitle;
 	}
-	public void setItemName(String itemName)
+	public void setItemTitle(String itemTitle)
 	{
-		this.itemName = itemName;
+		this.itemTitle = itemTitle;
 	}
-	public String getItemInfo()
+	public String getItemContent()
 	{
-		return itemInfo;
+		return itemContent;
 	}
-	public void setItemInfo(String itemInfo)
+	public void setItemContent(String itemContent)
 	{
-		this.itemInfo = itemInfo;
+		this.itemContent = itemContent;
 	}
-	public int getItemVal()
+	public int getItemPrice()
 	{
-		return itemVal;
+		return itemPrice;
 	}
-	public void setItemVal(int itemVal)
+	public void setItemPrice(int itemPrice)
 	{
-		this.itemVal = itemVal;
+		this.itemPrice = itemPrice;
 	}
 	public String getItemImg()
 	{

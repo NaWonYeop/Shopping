@@ -12,7 +12,7 @@ public class ItemBoardDAO extends DAO
 	//삭제
 		public void delete(int bId)
 		{
-			String sql="delete from item_board where ITEM_ID=?";
+			String sql="delete from shop_item where ITEM_ID=?";
 			connect();
 			
 			try
@@ -36,10 +36,10 @@ public class ItemBoardDAO extends DAO
 		//수정
 		public void update(ItemBoardVO vo)
 		{
-			String sql="update item_board set"
-					+ " ITEM_NAME=nvl(?,ITEM_NAME),"
-					+ " ITEM_INFO=nvl(?,ITEM_INFO),"
-					+ " ITME_VAL=nvl(?,ITME_VAL),"
+			String sql="update shop_item set"
+					+ " ITEM_TITLE=nvl(?,ITEM_TITLE),"
+					+ " ITEM_CONTENT=nvl(?,ITEM_CONTENT),"
+					+ " ITEM_PRICE=nvl(?,ITEM_PRICE),"
 					+ " ITEM_IMG=nvl(?,ITEM_IMG)"
 					+ " where ITEM_ID=?";
 			connect();
@@ -47,9 +47,9 @@ public class ItemBoardDAO extends DAO
 			try
 			{
 				psmt=conn.prepareStatement(sql);
-				psmt.setString(1, vo.getItemName());
-				psmt.setString(2, vo.getItemInfo());
-				psmt.setInt(3, vo.getItemVal());
+				psmt.setString(1, vo.getItemTitle());
+				psmt.setString(2, vo.getItemContent());
+				psmt.setInt(3, vo.getItemPrice());
 				psmt.setString(4, vo.getItemImg());
 				psmt.setInt(5, vo.getItemId());
 				
@@ -69,9 +69,9 @@ public class ItemBoardDAO extends DAO
 		//추가
 		public void insert(ItemBoardVO vo)
 		{
-			String idsql="select itembd_seq.nextval from dual";
-			String insql="insert into item_board values(?,?,?,?,?)";
-			
+			String idsql="select shop_item_seq.nextval from dual";
+			String insql="insert into shop_item values(?,?,?,?,?)";
+			connect();
 			int seq=-1;
 			try
 			{
@@ -81,9 +81,9 @@ public class ItemBoardDAO extends DAO
 					seq=rs.getInt(1);
 				psmt=conn.prepareStatement(insql);
 				psmt.setInt(1, seq);
-				psmt.setString(2, vo.getItemName());
-				psmt.setString(3, vo.getItemInfo());
-				psmt.setInt(4, vo.getItemVal());
+				psmt.setString(2, vo.getItemTitle());
+				psmt.setString(3, vo.getItemContent());
+				psmt.setInt(4, vo.getItemPrice());
 				psmt.setString(5, vo.getItemImg());
 				
 				int r=psmt.executeUpdate();
@@ -93,6 +93,9 @@ public class ItemBoardDAO extends DAO
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			finally {
+				disconnect();
+			}
 			
 			
 		}
@@ -100,7 +103,7 @@ public class ItemBoardDAO extends DAO
 		//단건조회
 		public ItemBoardVO searchone(int boardId) {
 			
-			String sql="select * from item_board where item_id=?";
+			String sql="select * from shop_item where item_id=?";
 			connect();
 			
 			try
@@ -112,9 +115,9 @@ public class ItemBoardDAO extends DAO
 				{
 					ItemBoardVO vo=new ItemBoardVO();
 					vo.setItemId(rs.getInt("item_id"));
-					vo.setItemName(rs.getString("item_name"));
-					vo.setItemInfo(rs.getString("item_info"));
-					vo.setItemVal(rs.getInt("item_val"));
+					vo.setItemTitle(rs.getString("item_title"));
+					vo.setItemContent(rs.getString("item_content"));
+					vo.setItemPrice(rs.getInt("item_price"));
 					vo.setItemImg(rs.getString("item_img"));				
 					return vo;
 				}
@@ -133,7 +136,7 @@ public class ItemBoardDAO extends DAO
 		//전체조회
 		public List<ItemBoardVO> boardList(){
 			List<ItemBoardVO> list= new ArrayList<>();
-			String sql="select * from item_board order by 1";
+			String sql="select * from shop_item order by 1";
 			connect();
 			
 			try
@@ -144,10 +147,10 @@ public class ItemBoardDAO extends DAO
 				{
 					ItemBoardVO vo=new ItemBoardVO();
 					vo.setItemId(rs.getInt("item_id"));
-					vo.setItemName(rs.getString("item_name"));
-					vo.setItemInfo(rs.getString("item_info"));
-					vo.setItemVal(rs.getInt("item_val"));
-					vo.setItemImg(rs.getString("item_img"));					
+					vo.setItemTitle(rs.getString("item_title"));
+					vo.setItemContent(rs.getString("item_content"));
+					vo.setItemPrice(rs.getInt("item_price"));
+					vo.setItemImg(rs.getString("item_img"));				
 					list.add(vo);
 				}
 			} catch (SQLException e)
