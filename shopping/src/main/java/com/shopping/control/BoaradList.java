@@ -1,4 +1,4 @@
-package com.shopping.Board;
+package com.shopping.control;
 
 import java.io.IOException;
 import java.util.List;
