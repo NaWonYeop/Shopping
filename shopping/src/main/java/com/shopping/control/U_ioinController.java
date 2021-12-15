@@ -25,7 +25,7 @@ public class U_ioinController implements Controller {
 		MemberService service = new MemberService();
 		service.insertMember(vo);
 		
-		req.getRequestDispatcher("login.jsp").forward(req, res);
+		req.getRequestDispatcher("member/login.jsp").forward(req, res);
 	}
 
 }

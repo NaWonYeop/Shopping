@@ -18,7 +18,6 @@ public class U_getController implements Controller {
 		String getId = service.getId(id);
 		req.setAttribute("id", getId);
 		
-		req.getRequestDispatcher("/join.jsp").forward(req, res);
 	}
 
 }
