@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.control.Controller;
+import com.shopping.Board.BoardService;
 import com.shopping.vo.BoardVO;
 
 
