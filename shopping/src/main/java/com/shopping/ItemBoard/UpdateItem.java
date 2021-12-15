@@ -23,9 +23,9 @@ public class UpdateItem implements Controller
 		
 		vo.setItemId(Integer.parseInt( req.getParameter("iId")) );
 		vo.setItemImg(req.getParameter("iImg"));
-		vo.setItemInfo(req.getParameter("iInfo"));
-		vo.setItemName(req.getParameter("iName"));
-		vo.setItemVal(Integer.parseInt( req.getParameter("iVal")));
+		vo.setItemContent(req.getParameter("iContent"));
+		vo.setItemTitle(req.getParameter("iTitle"));
+		vo.setItemPrice(Integer.parseInt( req.getParameter("iPrice")));
 			
 		
 		ItemBoardService service=new ItemBoardService();

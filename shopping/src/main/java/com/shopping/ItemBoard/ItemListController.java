@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.shopping.control.Controller;
 import com.shopping.vo.ItemBoardVO;
 
-public class ItemList implements Controller
+public class ItemListController implements Controller
 {
 
 	@Override
@@ -23,7 +23,7 @@ public class ItemList implements Controller
 		req.setAttribute("itemList", list);
 		
 		//아이템리스트화면
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
 	}
 
 }

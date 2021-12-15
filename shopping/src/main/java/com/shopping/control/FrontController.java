@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shopping.ItemBoard.InsertItemController;
+import com.shopping.ItemBoard.ItemListController;
 import com.shopping.member.DeleteController;
 import com.shopping.member.GetIdController;
 import com.shopping.member.JoinController;
@@ -23,10 +25,9 @@ public class FrontController extends HttpServlet
 		System.out.println("controller init ");
 		list=new HashMap<String,Controller>();
 	
-		//로그인
-		//list.put("/login.do", new LoginController());
-		
-		
+		//상품페이지
+		list.put("/insertItem.do",new InsertItemController());//등록후 itemlist.jsp
+		list.put("/ItemList.do", new ItemListController());
 		// 회원
 		list.put("/joinMember.do", new JoinController()); // ->login.jsp
 		list.put("/deleteMember.do", new DeleteController()); // ->index.jsp
@@ -45,7 +46,7 @@ public class FrontController extends HttpServlet
 		String context=req.getContextPath();//p20211209/*.do
 		int toPos=url.indexOf(".do");
 		String path=url.substring(context.length(),toPos+3);
-
+		System.out.println(path);
 		
 		Controller subCont=list.get(path);
 		subCont.excute(req, res);

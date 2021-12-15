@@ -11,7 +11,7 @@ public class BoardDAO extends DAO
 	//삭제
 	public void delete(int bId)
 	{
-		String sql="delete from board where board_id=?";
+		String sql="delete from SHOP_BOARD where board_id=?";
 		connect();
 		
 		try
@@ -35,10 +35,9 @@ public class BoardDAO extends DAO
 	//수정
 	public void update(BoardVO vo)
 	{
-		String sql="update board set"
-				+ " board_name=nvl(?,board_name),"
-				+ " board_info=nvl(?,board_info),"
-				+ " user_name=nvl(?,user_name),"
+		String sql="update SHOP_BOARD set"
+				+ " BOARD_TITLE=nvl(?,BOARD_TITLE),"
+				+ " BOARD_CONTENT=nvl(?,BOARD_CONTENT),"
 				+ " user_id=nvl(?,user_id)"
 				+ " where board_id=?";
 		connect();
@@ -46,11 +45,10 @@ public class BoardDAO extends DAO
 		try
 		{
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, vo.getBoardName());
-			psmt.setString(2, vo.getBoardInfo());
-			psmt.setString(3, vo.getUserName());
-			psmt.setString(4, vo.getUserId());
-			psmt.setInt(5, vo.getBoardId());
+			psmt.setString(1, vo.getBoardTitle());
+			psmt.setString(2, vo.getBoardContent());
+			psmt.setString(3, vo.getUserId());
+			psmt.setInt(4, vo.getBoardId());
 			
 			int r=psmt.executeUpdate();
 			System.out.println(r+"건 변경");
@@ -68,8 +66,8 @@ public class BoardDAO extends DAO
 	//추가
 	public void insert(BoardVO vo)
 	{
-		String idsql="select board_seq.nextval from dual";
-		String insql="insert into board values(?,?,?,?,?)";
+		String idsql="select shop_board_seq.nextval from dual";
+		String insql="insert into SHOP_BOARD values(?,?,?,?)";
 		
 		int seq=-1;
 		try
@@ -80,10 +78,9 @@ public class BoardDAO extends DAO
 				seq=rs.getInt(1);
 			psmt=conn.prepareStatement(insql);
 			psmt.setInt(1, seq);
-			psmt.setString(2, vo.getBoardName());
-			psmt.setString(3, vo.getBoardInfo());
-			psmt.setString(4, vo.getUserName());
-			psmt.setString(5, vo.getUserId());
+			psmt.setString(2, vo.getBoardTitle());
+			psmt.setString(3, vo.getBoardContent());
+			psmt.setString(4, vo.getUserId());
 			
 			int r=psmt.executeUpdate();
 			System.out.println(r+"건 입력");
@@ -99,7 +96,7 @@ public class BoardDAO extends DAO
 	//단건조회
 	public BoardVO searchone(int boardId) {
 		
-		String sql="select * from board where board_id=?";
+		String sql="select * from shop_board where board_id=?";
 		connect();
 		
 		try
@@ -111,11 +108,9 @@ public class BoardDAO extends DAO
 			{
 				BoardVO vo=new BoardVO();
 				vo.setBoardId(rs.getInt("board_id"));
-				vo.setBoardName(rs.getString("board_name"));
-				vo.setBoardInfo(rs.getString("board_info"));
-				vo.setUserId(rs.getString("user_name"));
-				vo.setUserName(rs.getString("user_id"));
-				
+				vo.setBoardTitle(rs.getString("BOARD_TITLE"));
+				vo.setBoardContent(rs.getString("BOARD_CONTENT"));
+				vo.setUserId(rs.getString("user_name"));	
 				return vo;
 			}
 		} catch (SQLException e)
@@ -133,7 +128,7 @@ public class BoardDAO extends DAO
 	//전체조회
 	public List<BoardVO> boardList(){
 		List<BoardVO> list= new ArrayList<>();
-		String sql="select * from board order by 1";
+		String sql="select * from shop_board order by 1";
 		connect();
 		
 		try
@@ -144,10 +139,9 @@ public class BoardDAO extends DAO
 			{
 				BoardVO vo=new BoardVO();
 				vo.setBoardId(rs.getInt("board_id"));
-				vo.setBoardName(rs.getString("board_name"));
-				vo.setBoardInfo(rs.getString("board_info"));
-				vo.setUserId(rs.getString("user_name"));
-				vo.setUserName(rs.getString("user_id"));
+				vo.setBoardTitle(rs.getString("BOARD_TITLE"));
+				vo.setBoardContent(rs.getString("BOARD_CONTENT"));
+				vo.setUserId(rs.getString("user_name"));	
 				list.add(vo);
 			}
 		} catch (SQLException e)

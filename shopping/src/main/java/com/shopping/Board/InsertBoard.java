@@ -20,14 +20,13 @@ public class InsertBoard implements Controller
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String uname=(String) session.getAttribute("UserName");
 		String uid=(String)session.getAttribute("UserId");
 				
 		vo.setBoardId(Integer.parseInt(req.getParameter("bId")));
-		vo.setBoardInfo(req.getParameter("bInfo"));
-		vo.setBoardName(req.getParameter("bName"));
+		vo.setBoardTitle(req.getParameter("bTitle"));
+		vo.setBoardContent("bContent");
 		vo.setUserId(uid);
-		vo.setUserName(uname);
+
 		
 		BoardService service=new BoardService();
 		

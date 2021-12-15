@@ -20,12 +20,12 @@ public class UpdateBoard implements Controller
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String user=(String) session.getAttribute("UserName");
+		String uid=(String)session.getAttribute("UserId");
 		
 		vo.setBoardId(Integer.parseInt(req.getParameter("bId")));
-		vo.setBoardInfo(req.getParameter("bInfo"));
-		vo.setBoardName(req.getParameter("bName"));
-		vo.setUserName(user);
+		vo.setBoardTitle(req.getParameter("bTitle"));
+		vo.setBoardContent("bContent");
+		vo.setUserId(uid);
 		
 		BoardService service=new BoardService();
 		service.update(vo);
