@@ -20,11 +20,11 @@ public class B_InsertController implements Controller
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String uid=(String)session.getAttribute("UserId");
+		String uid=(String)session.getAttribute("loginUser");
 				
-		vo.setBoardId(Integer.parseInt(req.getParameter("bId")));
-		vo.setBoardTitle(req.getParameter("bTitle"));
-		vo.setBoardContent("bContent");
+		vo.setBoardId(Integer.parseInt(req.getParameter("board_id")));
+		vo.setBoardTitle(req.getParameter("board_title"));
+		vo.setBoardContent("boart_content");
 		vo.setUserId(uid);
 
 		
@@ -34,7 +34,7 @@ public class B_InsertController implements Controller
 		service.insert(vo);
 		
 		//보드 리스트화면이동
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("BoardList.do").forward(req, res);
 		
 	}
 

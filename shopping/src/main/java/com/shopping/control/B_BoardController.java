@@ -16,18 +16,16 @@ public class B_BoardController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		int bId=Integer.parseInt(req.getParameter("bId")) ;
+		int bId=Integer.parseInt(req.getParameter("board_id")) ;
 		
 		BoardService service=new BoardService();
 		BoardVO vo= service.searchOne(bId);
 		
 		req.setAttribute("Singleboard", vo);
 		
-		//댓글추가
-	
 		
-		//싱글보드 이동
-		req.getRequestDispatcher(null).forward(req, res);
+	
+		req.getRequestDispatcher("board/baoard.jsp").forward(req, res);
 		
 	}
 

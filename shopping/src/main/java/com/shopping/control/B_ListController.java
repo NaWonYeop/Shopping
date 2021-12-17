@@ -24,7 +24,7 @@ public class B_ListController implements Controller
 			
 		
 		req.setAttribute("BoardList", list);
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("board/boardlist.jsp").forward(req, res);
 		
 	}
 

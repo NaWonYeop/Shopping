@@ -20,18 +20,18 @@ public class B_UpdateController implements Controller
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String uid=(String)session.getAttribute("UserId");
+		String uid=(String)session.getAttribute("loginUser");
 		
-		vo.setBoardId(Integer.parseInt(req.getParameter("bId")));
-		vo.setBoardTitle(req.getParameter("bTitle"));
-		vo.setBoardContent("bContent");
+		vo.setBoardId(Integer.parseInt(req.getParameter("board_id")));
+		vo.setBoardTitle(req.getParameter("board_title"));
+		vo.setBoardContent("board_content");
 		vo.setUserId(uid);
 		
 		BoardService service=new BoardService();
 		service.update(vo);
 		
 		//보드 리스트 이동
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("BoardList.do").forward(req, res);
 		
 	}
 
