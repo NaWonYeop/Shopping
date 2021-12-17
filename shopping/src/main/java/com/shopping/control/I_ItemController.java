@@ -25,11 +25,11 @@ public class I_ItemController implements Controller
 		
 		req.setAttribute("SingleItem", vo);
 		
-		//댓글추가
+		
 	
 		
 		//싱글보드 이동
-		req.getRequestDispatcher(null).forward(req, res);
+		req.getRequestDispatcher("item/item.jsp").forward(req, res);
 	}
 
 }

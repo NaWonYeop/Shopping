@@ -26,7 +26,9 @@ public class C_deleteController implements Controller {
 			service.deleteComment(uId, cId);
 		}
 		
-		req.getRequestDispatcher("").forward(req, res);
+		req.setAttribute("board_id", req.getParameter("board_id"));
+		//다시 보드로이동->b_board.do
+		req.getRequestDispatcher("viewBoard.do").forward(req, res);
 	}
 
 }

@@ -27,7 +27,8 @@ public class C_inserController implements Controller {
 		
 		service.insertComment(vo);
 		
-		req.getRequestDispatcher("").forward(req, res);
+		req.setAttribute("board_id", bId);
+		req.getRequestDispatcher("viewBoard.do").forward(req, res);
 		
 	}
 

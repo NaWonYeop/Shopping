@@ -33,8 +33,8 @@ public class C_updateController implements Controller {
 		if(loginUser.getId().equals(uId)) {
 			service.updateComment(vo);
 		}
-		
-		req.getRequestDispatcher("").forward(req, res);
-		
+		req.setAttribute("board_id", bId);
+		req.getRequestDispatcher("viewBoard.do").forward(req, res);
+		//사용?
 	}
 }
