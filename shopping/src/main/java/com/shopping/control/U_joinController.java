@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.shopping.member.MemberService;
 import com.shopping.vo.UserVO;
 
-public class U_ioinController implements Controller {
+public class U_joinController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

@@ -33,10 +33,11 @@ public class FrontController extends HttpServlet {
 		
 		
 		// 회원
-		list.put("/joinMember.do", new U_ioinController()); // ->login.jsp
+		list.put("/joinMember.do", new U_joinController()); // ->login.jsp
 		list.put("/deleteMember.do", new U_deleteController()); // ->index.jsp
 		list.put("/updateMember.do", new U_updateController()); // ->login.jsp
 		list.put("/getId.do", new U_getController()); // ->join.jsp
+		list.put("/login.do", new U_loginController());
 
 		// 댓글
 		list.put("/insertComment.do", new C_inserController());
