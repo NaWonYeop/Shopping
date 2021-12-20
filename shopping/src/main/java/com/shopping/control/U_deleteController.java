@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.member.MemberService;
+import com.shopping.user.UserService;
 
 public class U_deleteController implements Controller {
 
@@ -14,7 +14,7 @@ public class U_deleteController implements Controller {
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String id = req.getParameter("id");
 		
-		MemberService service = new MemberService();
+		UserService service = new UserService();
 		service.deleteMember(id);
 		
 		res.sendRedirect("index.jsp");

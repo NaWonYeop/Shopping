@@ -7,6 +7,10 @@
 <title>member/login.jsp</title>
 </head>
 <body>
-	
+	<form action="../login.do" method="post">
+		<input type="text" name="id" id="id" placeholder="ID"><br>
+		<input type="password" name="passwd" id="passwd" placeholder="PASSWORD"><br>
+		<input type="submit" value="Login"><br>
+	</form>
 </body>
 </html>
