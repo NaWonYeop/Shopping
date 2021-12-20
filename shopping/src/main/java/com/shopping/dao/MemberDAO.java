@@ -9,13 +9,13 @@ public class MemberDAO extends DAO {
 	public UserVO login(UserVO vo) {
 		String sql = "select * from shop_user where user_id = ? and passwd = ?";
 		connect();
+		UserVO loginUser = new UserVO();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
 			psmt.setString(2, vo.getPasswd());
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				UserVO loginUser = new UserVO();
 				loginUser.setId(rs.getString("user_id"));
 				loginUser.setPasswd(rs.getString("passwd"));
 				loginUser.setName(rs.getString("user_name"));
@@ -26,8 +26,7 @@ public class MemberDAO extends DAO {
 		} finally {
 			disconnect();
 		}
-
-		return null;
+		return loginUser;
 	}
 
 	// id중복체크
@@ -51,12 +50,12 @@ public class MemberDAO extends DAO {
 
 	// 수정
 	public UserVO updateMember(UserVO vo) {
-		String sql = "update shop_user set" + "passwd = NVL(?, passwd)," + "user_name = NVL(?, name)" + "where id = ?";
+		String sql = "update shop_user set passwd = NVL(?, passwd), user_name = NVL(?, user_name) where user_id = ?";
 		connect();
 		try {
-			conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getPasswd());
-			psmt.setString(1, vo.getName());
+			psmt.setString(2, vo.getName());
 			psmt.setString(3, vo.getId());
 
 			int r = psmt.executeUpdate();

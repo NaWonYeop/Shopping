@@ -26,6 +26,7 @@ public class U_loginController implements Controller {
 		
 		UserService service = new UserService();
 		UserVO loginUser = service.loginUser(vo);
+		System.out.println(loginUser.getId());
 		
 		if(id.equals(loginUser.getId())) {
 			if(passwd.equals(loginUser.getPasswd())) {
@@ -33,12 +34,10 @@ public class U_loginController implements Controller {
 				session.setAttribute("loginUser", loginUser);
 				req.getRequestDispatcher("ItemList.do").forward(req, res);
 			} else {
-				req.setAttribute("error", "아이디 혹은 비밀번호가 틀립니다.");
-				req.getRequestDispatcher("member/login.jsp").forward(req, res);
+				res.sendRedirect("member/login.jsp");
 			}
 		} else {
-			req.setAttribute("error", "존재하지 않는 아이디입니다.");
-			req.getRequestDispatcher("member/login.jsp").forward(req, res);
+			res.sendRedirect("member/login.jsp");
 		}
 		
 	}

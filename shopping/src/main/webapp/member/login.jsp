@@ -11,6 +11,7 @@
 		<input type="text" name="id" id="id" placeholder="ID"><br>
 		<input type="password" name="passwd" id="passwd" placeholder="PASSWORD"><br>
 		<input type="submit" value="Login"><br>
+		<button><a href="join.jsp">Join</a></button>
 	</form>
 </body>
 </html>
