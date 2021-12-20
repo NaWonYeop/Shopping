@@ -19,6 +19,9 @@ public class B_ListController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
 		BoardService service=new BoardService();
 		List<BoardVO> list=service.searchAll();
 			

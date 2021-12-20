@@ -16,6 +16,10 @@ public class I_ItemController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
+		
 		int iId=Integer.parseInt(req.getParameter("iId")) ;
 		
 		

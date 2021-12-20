@@ -1,31 +1,35 @@
 package com.shopping.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.shopping.ItemBoard.ItemBoardService;
 import com.shopping.vo.ItemBoardVO;
 
-public class I_ListController implements Controller
+public class I_UpFormController implements Controller
 {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		int iId=Integer.parseInt(req.getParameter("iId")) ;
+		
+		
+		
 		ItemBoardService service=new ItemBoardService();
-		List<ItemBoardVO> list=service.searchAll();
+		ItemBoardVO vo=service.searchOne(iId);
+		
+		req.setAttribute("SingleItem", vo);
+		
+		
 	
-		req.setAttribute("itemList", list);
-		HttpSession session = req.getSession();
-		session.setAttribute("loginUser", "admin");
-		//아이템리스트화면
-		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
+		
+		//싱글보드 이동
+		req.getRequestDispatcher("item/updateItem.jsp").forward(req, res);
 	}
 
 }

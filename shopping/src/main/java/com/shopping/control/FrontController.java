@@ -30,7 +30,7 @@ public class FrontController extends HttpServlet {
 		list.put("/updateItem.do", new I_UpdateController());// ->업데이트후 itemlist.do
 		list.put("/deleteItem.do", new I_DeleteController());// ->딜리트후 itemlist.do
 		list.put("/viewItem.do", new I_ItemController());// ->item.jsp
-		
+		list.put("/updateItemForm.do", new I_UpFormController());//->updateItem.jsp
 		
 		// 회원
 		list.put("/joinMember.do", new U_joinController()); // ->login.jsp

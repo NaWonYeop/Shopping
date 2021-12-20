@@ -20,11 +20,11 @@ function update(iId)
 {
 	var p=document.paging;
 	p.iId.value=iId;
-	p.action="../shopping/updateItem.do";
+	p.action="../shopping/updateItemForm.do";
 	p.method="post";
 	p.submit();
 }
-function delete(iId)
+function deletefnc(iId)
 {
 	var p=document.paging;
 	p.iId.value=iId;
@@ -57,14 +57,18 @@ function delete(iId)
 							<c:if test="${sessionScope.loginUser eq 'admin'}">
 								<td>
 									<button onclick="update(${item.itemId})">수정</button>
-									<button onclick="delete(${item.itemId}))">삭제</button>
+									<button onclick="deletefnc(${item.itemId})">삭제</button>
 								</td>
 							</c:if>				
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			
+		
+			<c:if test="${sessionScope.loginUser eq 'admin'}">
+			<button onclick="location.href='item/insertItem.jsp'">등록</button>
+			</c:if>
+			<!--이미지 이동시 사용 -->
 			<form name="paging">
 			<input type="hidden" name="iId">
 			</form>

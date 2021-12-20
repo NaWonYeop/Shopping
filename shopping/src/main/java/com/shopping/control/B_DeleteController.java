@@ -15,6 +15,10 @@ public class B_DeleteController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
+		
 		int bId=Integer.parseInt(req.getParameter("board_id")); 
 		BoardService service=new BoardService();
 		service.delete(bId);

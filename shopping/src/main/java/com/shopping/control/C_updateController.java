@@ -15,6 +15,10 @@ public class C_updateController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
+		
 		int cId = Integer.parseInt(req.getParameter("comment_id"));
 		String content = req.getParameter("comment_content");
 		int bId = Integer.parseInt(req.getParameter("board_id"));

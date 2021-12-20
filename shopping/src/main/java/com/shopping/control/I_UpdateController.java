@@ -16,13 +16,15 @@ public class I_UpdateController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
 		ItemBoardVO vo=new ItemBoardVO();
 		
 		vo.setItemId(Integer.parseInt( req.getParameter("iId")) );
-		vo.setItemImg(req.getParameter("iImg"));
 		vo.setItemContent(req.getParameter("iContent"));
 		vo.setItemTitle(req.getParameter("iTitle"));
-		vo.setItemPrice(Integer.parseInt( req.getParameter("iPrice")));
+		vo.setItemPrice(Integer.parseInt(req.getParameter("iPrice")));
 			
 		
 		ItemBoardService service=new ItemBoardService();
