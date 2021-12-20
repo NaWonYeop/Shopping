@@ -22,8 +22,6 @@ public class I_ListController implements Controller
 		List<ItemBoardVO> list=service.searchAll();
 	
 		req.setAttribute("itemList", list);
-		HttpSession session = req.getSession();
-		session.setAttribute("loginUser", "admin");
 		//아이템리스트화면
 		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
 	}
