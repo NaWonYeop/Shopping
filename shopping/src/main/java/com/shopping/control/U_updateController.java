@@ -17,6 +17,10 @@ public class U_updateController implements Controller {
 		String passwd = req.getParameter("passwd");
 		String name = req.getParameter("name");
 		
+		System.out.println(id);
+		System.out.println(passwd);
+		System.out.println(name);
+		
 		UserVO vo = new UserVO();
 		vo.setId(id);
 		vo.setName(name);

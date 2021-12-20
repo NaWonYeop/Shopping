@@ -28,4 +28,11 @@ public class UserVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", passwd=" + passwd + ", name=" + name + "]";
+	}
+	
+	
 }

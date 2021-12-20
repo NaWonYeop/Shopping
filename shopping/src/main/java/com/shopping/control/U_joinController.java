@@ -25,7 +25,7 @@ public class U_joinController implements Controller {
 		UserService service = new UserService();
 		service.insertMember(vo);
 		
-		req.getRequestDispatcher("member/login.jsp").forward(req, res);
+		res.sendRedirect("member/login.jsp");
 	}
 
 }
