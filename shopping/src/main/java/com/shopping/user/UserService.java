@@ -1,9 +1,9 @@
-package com.shopping.member;
+package com.shopping.user;
 
 import com.shopping.dao.MemberDAO;
 import com.shopping.vo.UserVO;
 
-public class MemberService {
+public class UserService {
 	MemberDAO dao = new MemberDAO();
 	
 	public void insertMember(UserVO vo) {
@@ -20,5 +20,9 @@ public class MemberService {
 	
 	public String getId(String id) {
 		return dao.getId(id);
+	}
+	
+	public UserVO loginUser(UserVO vo) {
+		return dao.login(vo);
 	}
 }

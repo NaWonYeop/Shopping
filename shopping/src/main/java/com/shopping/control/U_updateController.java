@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.shopping.member.MemberService;
+import com.shopping.user.UserService;
 import com.shopping.vo.UserVO;
 
 public class U_updateController implements Controller {
@@ -22,7 +22,7 @@ public class U_updateController implements Controller {
 		vo.setName(name);
 		vo.setPasswd(passwd);
 		
-		MemberService service = new MemberService();
+		UserService service = new UserService();
 		service.updateMember(vo);
 		
 		req.getRequestDispatcher("member/login.jsp").forward(req, res);
