@@ -14,8 +14,14 @@ public class C_getController implements Controller {
 
 	@Override
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		int bId = Integer.parseInt(req.getParameter("board_id"));
+		// int bId = Integer.parseInt(req.getParameter("board_id"));
 		
+		
+		req.setCharacterEncoding("utf-8");
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/json;charset=utf-8");
+		
+		int bId = 1;
 		CommentService service = new CommentService();
 		
 		Gson gson = new GsonBuilder().create();

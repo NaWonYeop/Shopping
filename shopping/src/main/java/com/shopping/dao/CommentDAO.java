@@ -20,13 +20,13 @@ public class CommentDAO extends DAO {
 			while(rs.next()) {
 				CommentVO vo = new CommentVO();
 				vo.setcId(rs.getInt("comment_id"));
-				vo.setContent(rs.getString("commect_content"));
+				vo.setContent(rs.getString("comment_content"));
 				vo.setbId(rs.getInt("board_id"));
 				vo.setuId(rs.getString("user_id"));
 				
 				list.add(vo);
-				return list;
 			}
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
