@@ -7,10 +7,10 @@
 <title>게시글 작성</title>
 </head>
 <body>
-	<form action="../insertItem.do"  enctype="multipart/form-data"  method="post">
+	<form action="../insertBoard.do" method="post">
 		
-		제목: <input type="text" name="iTitle"><br>
-		내용:<textarea name="iContent" id="iContent"></textarea><br> 
+		제목: <input type="text" name="board_title"><br>
+		내용:<textarea name="board_content" id="board_content"></textarea><br> 
 		<input type="submit" value="저장"> <input type="reset" value="취소">
 
 

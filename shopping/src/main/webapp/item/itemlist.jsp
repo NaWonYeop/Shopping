@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -54,7 +55,7 @@ function deletefnc(iId)
 							<td>${item.itemTitle }</td>
 							<td>${item.itemPrice }</td>
 							<td><a href="javascript:move_page(${item.itemId});"><img alt="상품 이미지" src="image/${item.itemImg }" width="200px" height="200px"></a> </td>
-							<c:if test="${sessionScope.loginUser eq 'admin'}">
+							<c:if test="${sessionScope.loginUser.id eq 'admin'}">
 								<td>
 									<button onclick="update(${item.itemId})">수정</button>
 									<button onclick="deletefnc(${item.itemId})">삭제</button>
@@ -65,7 +66,7 @@ function deletefnc(iId)
 				</tbody>
 			</table>
 		
-			<c:if test="${sessionScope.loginUser eq 'admin'}">
+			<c:if test="${sessionScope.loginUser.id eq 'admin'}">
 			<button onclick="location.href='item/insertItem.jsp'">등록</button>
 			</c:if>
 			<!--이미지 이동시 사용 -->

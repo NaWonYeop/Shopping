@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.shopping.Board.BoardService;
 import com.shopping.vo.BoardVO;
+import com.shopping.vo.UserVO;
 
 public class B_UpdateController implements Controller
 {
@@ -20,15 +21,15 @@ public class B_UpdateController implements Controller
 		req.setCharacterEncoding("utf-8");
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("text/json;charset=utf-8");
-		
+		System.out.println("여기까지오나?");
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String uid=(String)session.getAttribute("loginUser");
-		
-		vo.setBoardId(Integer.parseInt(req.getParameter("board_id")));
-		vo.setBoardTitle(req.getParameter("board_title"));
-		vo.setBoardContent("board_content");
+		UserVO us=(UserVO)session.getAttribute("loginUser");
+		String uid=us.getId();
+		vo.setBoardId(Integer.parseInt(req.getParameter("bId")));
+		vo.setBoardTitle(req.getParameter("bTitle"));
+		vo.setBoardContent(req.getParameter("bContent"));
 		vo.setUserId(uid);
 		
 		BoardService service=new BoardService();

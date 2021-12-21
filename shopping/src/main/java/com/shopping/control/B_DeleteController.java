@@ -19,7 +19,7 @@ public class B_DeleteController implements Controller
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("text/json;charset=utf-8");
 		
-		int bId=Integer.parseInt(req.getParameter("board_id")); 
+		int bId=Integer.parseInt(req.getParameter("bId")); 
 		BoardService service=new BoardService();
 		service.delete(bId);
 		

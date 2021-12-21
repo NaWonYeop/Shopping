@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="shopping/updateBoard.do" method="post">
-		<input type="hidden" name="bId" value="${requestScope.Singleboard.boardId">
-		제목: <input type="text" name="bTitle" value="${requestScope.Singleboard.boardTitle "><br>
-		내용:<textarea name="iContent" id="bContent">${requestScope.Singleboard.boardContent </textarea><br> 
+<form action="updateBoard.do" method="post">
+		<input type="hidden" name="bId" value="${requestScope.SingleBoard.boardId}">
+		제목: <input type="text" name="bTitle" value="${requestScope.SingleBoard.boardTitle }"><br>
+		내용:<textarea name="bContent" id="bContent">${requestScope.SingleBoard.boardContent }</textarea><br> 
 		<input type="submit" value="저장"> <input type="reset" value="취소">
 
 

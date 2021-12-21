@@ -6,10 +6,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shopping.Board.BoardService;
 import com.shopping.ItemBoard.ItemBoardService;
+import com.shopping.vo.BoardVO;
 import com.shopping.vo.ItemBoardVO;
 
-public class I_UpFormController implements Controller
+public class B_UpFormController implements Controller
 {
 
 	@Override
@@ -20,16 +22,17 @@ public class I_UpFormController implements Controller
 		
 		
 		
-		ItemBoardService service=new ItemBoardService();
-		ItemBoardVO vo=service.searchOne(iId);
+		BoardService service=new BoardService();
+		BoardVO vo= service.searchOne(iId);
 		
-		req.setAttribute("SingleItem", vo);
+		req.setAttribute("SingleBoard", vo);
 		
-		
-	
+		System.out.println(vo.getBoardContent());
+		System.out.println(vo.getBoardId());
+		System.out.println(vo.getBoardTitle());
 		
 		//싱글보드 이동
-		req.getRequestDispatcher("item/updateItem.jsp").forward(req, res);
+		req.getRequestDispatcher("board/updateBoard.jsp").forward(req, res);
 	}
 
 }

@@ -19,16 +19,16 @@ public class B_BoardController implements Controller
 		req.setCharacterEncoding("utf-8");
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("text/json;charset=utf-8");
-		int bId=Integer.parseInt(req.getParameter("board_id")) ;
-		
+		int bId=Integer.parseInt(req.getParameter("bId")) ;
+	
 		BoardService service=new BoardService();
 		BoardVO vo= service.searchOne(bId);
-		
+	
 		req.setAttribute("Singleboard", vo);
 		
 		
 	
-		req.getRequestDispatcher("board/baoard.jsp").forward(req, res);
+		req.getRequestDispatcher("board/board.jsp").forward(req, res);
 		
 	}
 

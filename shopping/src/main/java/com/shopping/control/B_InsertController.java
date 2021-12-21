@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.shopping.Board.BoardService;
 import com.shopping.vo.BoardVO;
+import com.shopping.vo.UserVO;
 
 public class B_InsertController implements Controller
 {
@@ -24,17 +25,17 @@ public class B_InsertController implements Controller
 		BoardVO vo=new BoardVO();
 		
 		HttpSession session= req.getSession();
-		String uid=(String)session.getAttribute("loginUser");
-				
-		vo.setBoardId(Integer.parseInt(req.getParameter("board_id")));
+		UserVO us=(UserVO)session.getAttribute("loginUser");
+		String uid=us.getId();
+	
+		
 		vo.setBoardTitle(req.getParameter("board_title"));
-		vo.setBoardContent("boart_content");
+		vo.setBoardContent(req.getParameter("board_content"));
 		vo.setUserId(uid);
 
 		
 		BoardService service=new BoardService();
-		
-		
+
 		service.insert(vo);
 		
 		//보드 리스트화면이동

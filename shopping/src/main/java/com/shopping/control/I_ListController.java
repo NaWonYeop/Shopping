@@ -23,6 +23,7 @@ public class I_ListController implements Controller
 	
 		req.setAttribute("itemList", list);
 		//아이템리스트화면
+	
 		req.getRequestDispatcher("item/itemlist.jsp").forward(req, res);
 	}
 

@@ -70,6 +70,7 @@ public class BoardDAO extends DAO
 		String insql="insert into SHOP_BOARD values(?,?,?,?)";
 		
 		int seq=-1;
+		connect();
 		try
 		{
 			stmt=conn.createStatement();
@@ -89,7 +90,9 @@ public class BoardDAO extends DAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		finally {
+			disconnect();
+		}
 		
 	}
 	
@@ -110,7 +113,7 @@ public class BoardDAO extends DAO
 				vo.setBoardId(rs.getInt("board_id"));
 				vo.setBoardTitle(rs.getString("BOARD_TITLE"));
 				vo.setBoardContent(rs.getString("BOARD_CONTENT"));
-				vo.setUserId(rs.getString("user_name"));	
+				vo.setUserId(rs.getString("user_id"));	
 				return vo;
 			}
 		} catch (SQLException e)
@@ -141,7 +144,7 @@ public class BoardDAO extends DAO
 				vo.setBoardId(rs.getInt("board_id"));
 				vo.setBoardTitle(rs.getString("BOARD_TITLE"));
 				vo.setBoardContent(rs.getString("BOARD_CONTENT"));
-				vo.setUserId(rs.getString("user_name"));	
+				vo.setUserId(rs.getString("user_id"));	
 				list.add(vo);
 			}
 		} catch (SQLException e)
