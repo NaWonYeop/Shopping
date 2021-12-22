@@ -5,48 +5,97 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판</title>
 <script>
-function update()
-{
-	var p=document.paging;
-	p.action="../shopping/updateBoardForm.do";
-	p.method="post";
-	p.submit();
-}
-function deletefnc()
-{
-	var p=document.paging;
-	p.action="../shopping/deleteBoard.do";
-	p.method="post";
-	p.submit();	
-	
-}
-var lu="${loginUser.id}";
-var uI="${requestScope.Singleboard.userId}";
+	function update() {
+		var p = document.paging;
+		p.action = "../shopping/updateBoardForm.do";
+		p.method = "post";
+		p.submit();
+	}
+	function deletefnc() {
+		var p = document.paging;
+		p.action = "../shopping/deleteBoard.do";
+		p.method = "post";
+		p.submit();
 
+	}
 </script>
+<style>
+* {
+	text-align: center;
+}
+
+table {
+	width: 80%;
+	height: 200px;
+	margin-left: 7%;
+	border-collapse : collapse;
+}
+tr#title,tr#user{
+	border-bottom: 1px solid black;
+}
+td#con {
+	text-align: left;
+	font-size: 25px;
+}
+
+button {
+	width: 100px;
+	margin-left: 50px;
+}
+
+div#home {
+	position: absolute;
+	left: 90%;
+	top: 90%
+}
+</style>
+
 </head>
 <body>
-	<h1>제목 ${requestScope.Singleboard.boardTitle}</h1>
-	<h2>작성자 ${requestScope.Singleboard.userId}</h2>
-	<h3>${requestScope.Singleboard.boardContent}</h3>
-	<h3>현재로그인 ${sessionScope.loginUser.id}</h3>
+	<div id="body">
+		<h1>게시판</h1>
+		<table>
+			<thead>
+				<tr id="title">
+					<td>제목</td>
+					<td>${requestScope.Singleboard.boardTitle}</td>
+				</tr>
+				<tr id="user">
+					<td>작성자</td>
+					<td>${requestScope.Singleboard.userId}</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="2" id="con">${requestScope.Singleboard.boardContent}</td>
+				</tr>
+			</tbody>
 
-	
-	<c:if test="${loginUser.id == requestScope.Singleboard.userId}">
-			
+		</table>
+
+		<c:if test="${loginUser.id == requestScope.Singleboard.userId}">
+
 			<button onclick="update()">수정</button>
 			<button onclick="deletefnc()">삭제</button>
 
-	</c:if>
-	
-	<form name="paging">
-		<input type="hidden" name="bId" value="${requestScope.Singleboard.boardId}">
-	</form>
-			
-	<!-- 댓글창 필요 -->
-	
-	
+		</c:if>
+
+		<form name="paging">
+			<input type="hidden" name="bId"
+				value="${requestScope.Singleboard.boardId}">
+		</form>
+	</div>
+
+
+	<div id="com">
+		<!-- 댓글창 필요 -->
+	</div>
+	<div id="home">
+		<form action="../shopping/BoardList.do" method="post">
+			<input type="submit" value="목록으로">
+		</form>
+	</div>
 </body>
 </html>

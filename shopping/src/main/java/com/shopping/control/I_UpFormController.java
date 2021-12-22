@@ -16,7 +16,7 @@ public class I_UpFormController implements Controller
 	public void excute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		int iId=Integer.parseInt(req.getParameter("bId")) ;
+		int iId=Integer.parseInt(req.getParameter("iId")) ;
 		
 		
 		
