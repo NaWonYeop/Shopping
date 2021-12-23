@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>게시판</title>
 <script>
 	function update() {
@@ -30,11 +31,13 @@ table {
 	width: 80%;
 	height: 200px;
 	margin-left: 7%;
-	border-collapse : collapse;
+	border-collapse: collapse;
 }
-tr#title,tr#user{
+
+tr#title, tr#user {
 	border-bottom: 1px solid black;
 }
+
 td#con {
 	text-align: left;
 	font-size: 25px;
@@ -54,6 +57,7 @@ div#home {
 
 </head>
 <body>
+	<%@ include file="../head.jsp"%>
 	<div id="body">
 		<h1>게시판</h1>
 		<table>
@@ -88,14 +92,39 @@ div#home {
 		</form>
 	</div>
 
-
-	<div id="com">
-		<!-- 댓글창 필요 -->
+	<div id="content">
+	
 	</div>
+
 	<div id="home">
 		<form action="../shopping/BoardList.do" method="post">
 			<input type="submit" value="목록으로">
 		</form>
 	</div>
+	
+	<script>
+	var content = document.getElementById('content');
+	getAjax();
+
+	function getAjax() {
+		var xhtp = new XMLHttpRequest();
+		var x=${requestScope.Singleboard.boardId};
+		xhtp.open("get", "getComment.do?bId="+x);
+		
+		console.log(document.querySelector('[name="bId"]').value);
+		xhtp.send();
+		xhtp.onload = function(){
+			console.log(xhtp.responseText);
+			var data = JSON.parse(xhtp.responseText);
+			data.forEach(item => {
+				console.log(item);
+				var li = document.createElement('li');
+				
+				li.textContent = item.content;
+				content.append(li);
+			});
+		}
+	}
+	</script>
 </body>
 </html>

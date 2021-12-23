@@ -49,12 +49,13 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = req.getRequestURI();// /First/emplist.do
+		System.out.println(url);
 
 		String context = req.getContextPath();// p20211209/*.do
 		int toPos = url.indexOf(".do");
-		String path = url.substring(context.length(), toPos + 3);
+		String path = url.substring(context.length());
 		System.out.println(path);
-
+		
 		Controller subCont = list.get(path);
 		subCont.excute(req, res);
 	}

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>상품 정보</title>
 <style>
 *{
@@ -40,6 +41,7 @@ top: 90%
 </style>
 </head>
 <body>
+	<%@ include file="../head.jsp"%>
 	<h1>상품 단건 페이지</h1>
 	<div id="img">
 		<img alt="상품 이미지" src="image/${requestScope.SingleItem.itemImg }" width="100%" height="100%">

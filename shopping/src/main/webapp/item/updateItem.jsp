@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <style>
 * {
@@ -32,6 +33,7 @@ margin-top:30px;
 </style>
 </head>
 <body>
+	<%@ include file="../head.jsp"%>
 	<form action="../shopping/updateItem.do" method="post">
 		<input type="hidden" name="iId" value="${requestScope.SingleItem.itemId }">
 		<table>

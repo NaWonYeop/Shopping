@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>상품 리스트</title>
 <style>* {
 	text-align: center;
@@ -58,6 +59,7 @@ function deletefnc(iId)
 </head>
 
 <body>
+	<%@ include file="../head.jsp"%>
 	<h1>상품 리스트</h1>
 
 

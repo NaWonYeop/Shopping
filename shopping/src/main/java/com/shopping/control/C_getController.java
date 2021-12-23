@@ -20,8 +20,9 @@ public class C_getController implements Controller {
 		req.setCharacterEncoding("utf-8");
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("text/json;charset=utf-8");
-		
-		int bId = 1;
+		System.out.println(req.getParameter("bId"));
+		System.out.println(req.getParameter("test"));
+		int bId = Integer.parseInt(req.getParameter("bId")) ;
 		CommentService service = new CommentService();
 		
 		Gson gson = new GsonBuilder().create();

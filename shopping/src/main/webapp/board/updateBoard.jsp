@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>게시판 수정</title>
 <style>
 * {
@@ -43,12 +44,16 @@ input[type="reset"] {
 </style>
 </head>
 <body>
-<form action="updateBoard.do" method="post">
-<h1>게시판수정</h1>
-		<input type="hidden" name="bId" value="${requestScope.SingleBoard.boardId}">
-		<input type="text" name="bTitle" value="${requestScope.SingleBoard.boardTitle }"><br>
-		<textarea name="bContent" id="bContent">${requestScope.SingleBoard.boardContent }</textarea><br> 
-		<input type="submit" value="저장"> <input type="reset" value="취소">
+	<%@ include file="../head.jsp"%>
+	<form action="updateBoard.do" method="post">
+		<h1>게시판수정</h1>
+		<input type="hidden" name="bId"
+			value="${requestScope.SingleBoard.boardId}"> <input
+			type="text" name="bTitle"
+			value="${requestScope.SingleBoard.boardTitle }"><br>
+		<textarea name="bContent" id="bContent">${requestScope.SingleBoard.boardContent }</textarea>
+		<br> <input type="submit" value="저장"> <input type="reset"
+			value="취소">
 
 
 	</form>
