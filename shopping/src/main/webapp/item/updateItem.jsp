@@ -20,13 +20,15 @@ height: 50px;
 textarea{
 width: 100%;
     height: 100%;
-
+	font-size: 25px;
     resize: none;
 }
 input{
 height: 30%;
 width: 200px;
 }
+input[type="text"],input[type="number"]{
+font-size:100%;}
 div#insert{
 margin-top:30px;
 }

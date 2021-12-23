@@ -12,15 +12,31 @@
 * {
 	text-align: center;
 }
+<<<<<<< HEAD
 
 table {
 	width: 100%;
 	height: 500px;
+=======
+table{
+width: 100%;
+height: 500px;
+}
+table>tr{
+height: 50px;
+}
+textarea{
+width: 100%;
+    height: 100%;
+	font-size: 25px;
+    resize: none;
+>>>>>>> branch 'main' of https://github.com/NaWonYeop/shopping.git
 }
 
 table>tr {
 	height: 50px;
 }
+<<<<<<< HEAD
 
 textarea {
 	width: 100%;
@@ -35,6 +51,13 @@ input {
 
 div#insert {
 	margin-top: 30px;
+=======
+input[type="text"],input[type="number"]{
+font-size:100%;}
+div#insert{
+div#insert{
+margin-top:30px;
+>>>>>>> branch 'main' of https://github.com/NaWonYeop/shopping.git
 }
 </style>
 
